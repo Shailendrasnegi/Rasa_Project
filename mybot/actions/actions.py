@@ -50,7 +50,7 @@ class ActionSubmit(Action):
         return 'action_submit'
 
     def run(self, dispatcher, tracker: Tracker, domain: "DomainDict",) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(template="utter_details_thanks", Name = tracker.get.slot("name"), Mobile_number=tracker.get.slot("number"))
+        dispatcher.utter_message(template="utter_thanks", Name = tracker.get.slot("name"), Mobile_number=tracker.get.slot("number"))
 
 
 

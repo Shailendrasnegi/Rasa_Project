@@ -94,8 +94,8 @@ nlu:
 
 - intent: tell_name
   examples: |
-    - what is your name?
     - tell me your name?
+    - whome i talking with?
 
 - intent: my_name
   examples: |
