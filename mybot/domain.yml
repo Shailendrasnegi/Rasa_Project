@@ -84,7 +84,11 @@ responses:
   - text: "What is your mobile number?"
 
   utter_thanks:
-  - text: "Thanks for giving information \nName: {Name}, \nMobile Number:{Mobile_number} "
+  - text: "Thanks for giving information "
+
+  utter_detail_thanks:
+  - text: "Thanks for giving information \nName: {Name}, \nMobile Number: {Mobile_number} "
+
 
 session_config:
   session_expiration_time: 60

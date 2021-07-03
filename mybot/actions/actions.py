@@ -49,9 +49,13 @@ class ActionSubmit(Action):
     def name(self) ->Text:
         return 'action_submit'
 
-    def run(self, dispatcher, tracker: Tracker, domain: "DomainDict",) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(template="utter_thanks", Name = tracker.get.slot("name"), Mobile_number=tracker.get.slot("number"))
-
+    def run(self, dispatcher, 
+        tracker: Tracker, 
+        domain: "DomainDict",
+    ) -> List[Dict[Text, Any]]:
+        
+        dispatcher.utter_message(template="utter_detail_thanks", Name = tracker.get_slot("name"), Mobile_number=tracker.get_slot("number"))
+        
 
 
 # For playing video

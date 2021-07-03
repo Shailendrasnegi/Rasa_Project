@@ -44,7 +44,7 @@ stories:
 #  - action: utter_greet
 #  - intent: tell_name
 #  - action: utter_name
-# action: utter_my_name
+#  - action: utter_my_name
 #  - intent: my_name
 #    entities:
 #    - name: 'rahul'
