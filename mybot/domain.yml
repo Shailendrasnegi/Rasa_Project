@@ -1,0 +1,91 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - tell_name
+  - play_video
+  - chitchat
+  - my_name:
+      use_entities:
+        - name
+  - mobile_number:
+      use_entities:
+        - number
+
+entities:
+  - name
+  - number
+
+slots:
+  name:
+    type: text
+    
+  number:
+    type: text
+  
+actions:
+  - action_submit
+  - action_video
+
+forms:
+  user_detail_form:
+    name:
+      - type: from_entity
+        entity: name
+
+    number:
+      - type: from_entity
+        entity: number
+
+responses:
+
+  utter_chitchat/ask_name:
+  - image: "https://www.google.com/search?q=helo+name+image&rlz=1C1GCEU_enIN914IN914&tbm=isch&source=iu&ictx=1&fir=iNrBn8K1095ZLM%252CCJ-mWTFTgf0faM%252C_&vet=1&usg=AI4_-kS9VikF6NoMlnSvAfM6HDrt6Fyidw&sa=X&ved=2ahUKEwiusuGD7MTxAhXE4zgGHZH1Bg0Q9QF6BAgLEAE#imgrc=iNrBn8K1095ZLM"
+    text: Hello, my name is Retrival Bot
+  - text: I am called Retrival Bot 
+
+  utter_chitchat/ask_weather:
+  - text: Oh, it does look sunny right now in Berline
+    image: "https://www.google.com/search?q=sunny+day+pics+of+berlin&rlz=1C1GCEU_enIN914IN914&tbm=isch&source=iu&ictx=1&fir=rhkPHXuQHATHkM%252C8tFYWvOidr8ulM%252C_&vet=1&usg=AI4_-kT-IOYH9tVWZD2jVEK_O-E40WNUtg&sa=X&ved=2ahUKEwjAv-3f68TxAhVbzzgGHVzFCHsQ9QF6BAgKEAE#imgrc=rhkPHXuQHATHkM"
+  - text: I am not sure of the whole week but i can see sun is out today
+
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_name:
+  - text: "I am a Bot....."
+
+  utter_ask_name:
+  - text: "What is your name?"
+
+  utter_ask_number:
+  - text: "What is your mobile number?"
+
+  utter_thanks:
+  - text: "Thanks for giving information \nName: {Name}, \nMobile Number:{Mobile_number} "
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
