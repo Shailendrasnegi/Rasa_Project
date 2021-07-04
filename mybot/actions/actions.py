@@ -10,11 +10,13 @@
 from typing import Any, Text, Dict, List
 #from typing_extensions import Required
 
+
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, SlotSet
 from rasa_sdk.types import DomainDict
 import webbrowser
+import requests
 #
 #
 # class ActionHelloWorld(Action):
@@ -30,13 +32,13 @@ import webbrowser
 #
 #         return []
 
-
+### Form Slot Action example
 class ValidateResturantForm(Action):
 
     def name(self) -> Text:
         return "user_detail_form"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict) -> List[EventType]:
         
         required_slots = ['name', 'number']
 
@@ -49,7 +51,7 @@ class ActionSubmit(Action):
     def name(self) ->Text:
         return 'action_submit'
 
-    def run(self, dispatcher, 
+    async def run(self, dispatcher, 
         tracker: Tracker, 
         domain: "DomainDict",
     ) -> List[Dict[Text, Any]]:
@@ -72,3 +74,6 @@ class ActionVideo(Action):
         dispatcher.utter_message(text="wait...playing your video!")
         webbrowser.open(video_url)
         return []
+
+
+

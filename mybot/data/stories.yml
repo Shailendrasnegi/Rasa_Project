@@ -33,10 +33,10 @@ stories:
 - story: happy play video path
   steps:
   - checkpoint: play_action_checkpoint
-  - intent: greet
-  - action: utter_greet
   - intent: play_video
   - action: action_video
+
+
 
 #- story: my name path
 #  steps:

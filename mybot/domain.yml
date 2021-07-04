@@ -20,13 +20,16 @@ intents:
 
 entities:
   - name
-  - number
+  - number  - state
 
 slots:
   name:
     type: text
     
   number:
+    type: text
+
+  state:
     type: text
   
 actions:
@@ -88,6 +91,7 @@ responses:
 
   utter_detail_thanks:
   - text: "Thanks for giving information \nName: {Name}, \nMobile Number: {Mobile_number} "
+
 
 
 session_config:
