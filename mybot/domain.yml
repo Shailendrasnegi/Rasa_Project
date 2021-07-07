@@ -17,10 +17,22 @@ intents:
   - mobile_number:
       use_entities:
         - number
+  - my_state:
+      use_entities:
+        - stat
+
+  - my_country:
+      use_entities:
+        - country
+  - my_assitance
+  - corona_states
 
 entities:
   - name
-  - number  - state
+  - number
+  - stat
+  - country
+  - state
 
 slots:
   name:
@@ -29,12 +41,16 @@ slots:
   number:
     type: text
 
-  state:
+  stat:
+    type: text
+
+  country:
     type: text
   
 actions:
   - action_submit
   - action_video
+  - actions_corona_state
 
 forms:
   user_detail_form:
@@ -87,11 +103,16 @@ responses:
   - text: "What is your mobile number?"
 
   utter_thanks:
-  - text: "Thanks for giving information "
+  - text: "Thanks for giving information\nCountry: {country}, \nState: {state} "
 
   utter_detail_thanks:
   - text: "Thanks for giving information \nName: {Name}, \nMobile Number: {Mobile_number} "
 
+  utter_my_state:
+  - text: "What's your state name?"
+
+  utter_my_country:
+  - text: "What's your country name?"
 
 
 session_config:

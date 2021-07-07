@@ -75,5 +75,43 @@ class ActionVideo(Action):
         webbrowser.open(video_url)
         return []
 
+#Corona Tracker
+
+class Actioncoronastats(Action):
+
+    def name(self) -> Text:
+        return "actions_corona_state"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        responses = requests.get("https://api.covid19india.org/data.json").json()
+
+        entities = tracker.latest_message['entities']
+        print("Covid report for:", entities)
+        state = None
+
+        for i in entities:
+            if i["entity"] == "state":
+                state = i["value"]
+
+        message = "Please Enter Correct State Name !"
+
+        if state == "india":
+            state = "Total"
+        
+        for data in responses["statewise"]:
+            if data["state"] == state.title():
+                
+                message = "Now Showing Cases For --> " + state.title() + " Since Last 24 Hours : "+ "\n" + "Active: " + data[
+                    "active"] + " \n" + "Confirmed: " + data["confirmed"] + " \n" + "Recovered: " + data[
+                              "recovered"] + " \n" + "Deaths: " + data["deaths"] + " \n" + "As Per Data On: " + data[
+                              "lastupdatedtime"]
+
+        print(message)
+        dispatcher.utter_message(message)
+
+        return []
 
 

@@ -38,22 +38,27 @@ stories:
 
 
 
-#- story: my name path
-#  steps:
-#  - intent: greet
-#  - action: utter_greet
-#  - intent: tell_name
-#  - action: utter_name
-#  - action: utter_my_name
-#  - intent: my_name
-#    entities:
-#    - name: 'rahul'
-#  - slot_was_set:
-#      - name: 'rahul'
-#  - action: utter_mobile_number
-#  - intent: mobile_number
-#    entities:
-#    - number: '9810719599'
-#  - slot_was_set:
-#      - number: '9810719599'
-#  - action: utter_thanks
+- story: my country path
+  steps:
+  - intent: my_assitance
+  - action: utter_my_country
+  - intent: my_country
+    entities:
+      - country: 'India'
+  - slot_was_set:
+      - country: 'India'
+  - action: utter_my_state
+  - intent: my_state
+    entities:
+     - stat: 'Uttrakhand'
+  - slot_was_set:
+     - stat: 'Uttrakhand'
+  - action: utter_thanks
+
+
+- story: corona tracker path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: corona_states
+  - action: actions_corona_state

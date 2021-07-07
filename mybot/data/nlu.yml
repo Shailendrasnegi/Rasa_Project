@@ -127,3 +127,32 @@ nlu:
     - Does it look sunny outside today?
     - I like sunny days in Berlin
 
+- intent: my_country
+  examples: |
+    - my country is [India]{"entity":"country", "value":"India"}
+    - my country is [New zealand]{"entity":"country", "value":"New zealand"}
+    - my country is Britain{"entity":"country", "value":"Britain"}
+  
+- intent: my_state
+  examples: |
+    - my State is [Uttrakhand]{"entity":"stat", "value":"Uttrakhand"}
+  
+- intent: my_assitance
+  examples: |
+    - I need your assitance
+
+- intent: corona_states
+  examples: |
+    - [India](state)
+    - [Gujarat](state)
+    - I live in [Gujarat](state:Gujarat)
+    - [Andhra Pradesh](state)
+    - I live in [Andhra Pradesh](state:Andhra Pradesh)
+    - [Arunachal Pradesh](state)
+    - I live in [Arunachal Pradesh](state:Arunachal Pradesh)
+    - [Assam](state)
+    - I live in [Assam](state:Assam)
+    - [Bihar](state)
+    - I live in [Bihar](state:Bihar)
+    - [Goa](state)
+    - I live in [Goa](state:Goa)
